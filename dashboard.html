@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Mapper</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="page.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <button class="col-1" id="Bottone" onclick="vaia('dashboard.html')">Home</button>
+                <h1 class="col">Drone Mapper - Esplora i tuoi Terreni</h1>
+                <button class="col-1 Bottone" onclick="vaia('login.php')">Log Out</button>
+            </div>
+        </div>
+    </header>
+    <div id="miobody">
+        <div class="nav-buttons">
+            <form action="tuttelefoto.php" method="get">
+                <button type="submit"><img src="img/fotocamera.png" alt="camera"/> Tutte le foto</button>
+            </form>
+    
+            <form action="viewdata.html" method="get">
+                <button type="submit"><img src="img/data.png" alt="calendar--v1"/> Foto per data</button>
+            </form> 
+    
+            <form id="dateForm" action="viewdata.html" method="get">
+                <input type="hidden" name="data" id="dateInput">
+                <button type="submit"><img src="img/oggi.png" alt="today"/>Foto di oggi</button>
+            </form>
+
+            <form action="viewbetweendate.html" method="get">
+                <button type="submit"><img src="img/calendario.png" alt="today"/>Foto in range</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script>
+        let today = new Date().toISOString().split('T')[0];
+        document.getElementById("dateInput").value = today;
+        document.getElementById("dateForm").action = "viewdata.php?data=" + today;
+    </script>
+</body>
+</html>
